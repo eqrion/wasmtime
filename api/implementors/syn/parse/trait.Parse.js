@@ -1,0 +1,4 @@
+(function() {var implementors = {};
+implementors["syn"] = [];
+implementors["wiggle_generate"] = [{"text":"impl Parse for ConfigField","synthetic":false,"types":[]},{"text":"impl Parse for Config","synthetic":false,"types":[]},{"text":"impl Parse for Paths","synthetic":false,"types":[]},{"text":"impl Parse for Literal","synthetic":false,"types":[]},{"text":"impl Parse for CtxConf","synthetic":false,"types":[]},{"text":"impl Parse for ErrorConf","synthetic":false,"types":[]},{"text":"impl Parse for ErrorConfField","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["yanix"] = [{"text":"impl Octal for FdFlags","synthetic":false,"types":[]},{"text":"impl Octal for AtFlags","synthetic":false,"types":[]},{"text":"impl Octal for Mode","synthetic":false,"types":[]},{"text":"impl Octal for OFlags","synthetic":false,"types":[]},{"text":"impl Octal for PollFlags","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

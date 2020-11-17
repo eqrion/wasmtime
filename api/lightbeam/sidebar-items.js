@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ExecutionError",""]],"fn":[["disassemble",""],["translate",""],["translate_function",""]],"mod":[["microwasm",""]],"struct":[["CodeGenSession",""],["ExecutableModule",""],["NullOffsetSink",""],["Sinks",""],["TranslatedModule",""]],"trait":[["ModuleContext",""],["OffsetSink",""],["Signature",""]]});

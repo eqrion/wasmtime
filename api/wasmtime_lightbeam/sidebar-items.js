@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Lightbeam","A compiler that compiles a WebAssembly module with Lightbeam, directly translating the Wasm file."]]});

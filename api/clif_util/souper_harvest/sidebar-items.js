@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["run",""]],"static":[["WASM_MAGIC",""]],"struct":[["Options","Harvest candidates for superoptimization from a Wasm or Clif file."]]});

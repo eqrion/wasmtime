@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["TableOps","A description of a Wasm module that makes a series of `externref` table operations."]]});

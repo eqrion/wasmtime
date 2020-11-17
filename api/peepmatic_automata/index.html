@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `peepmatic_automata` crate."><meta name="keywords" content="rust, rustlang, rust-lang, peepmatic_automata"><title>peepmatic_automata - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings"></script><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../peepmatic_automata/index.html'><div class='logo-container rust-logo'><img src='../rust-logo.png' alt='logo'></div></a><p class="location">Crate peepmatic_automata</p><div class="block version"><p>Version 0.68.0</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all peepmatic_automata's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class="location"></p><script>window.sidebarCurrent = {name: "peepmatic_automata", ty: "mod", relpath: "../"};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/peepmatic_automata/lib.rs.html#1-1024" title="goto source code">[src]</a></span><span class="in-band">Crate <a class="mod" href="">peepmatic_automata</a></span></h1><div class="docblock"><p>Finite-state transducer automata.</p>
+<p>A transducer is a type of automata that has not only an input that it
+accepts or rejects, but also an output. While regular automata check whether
+an input string is in the set that the automata accepts, a transducer maps
+the input strings to values. A regular automata is sort of a compressed,
+immutable set, and a transducer is sort of a compressed, immutable key-value
+dictionary. A <a href="https://en.wikipedia.org/wiki/Trie">trie</a> compresses a set of strings or map from a string to a
+value by sharing prefixes of the input string. Automata and transducers can
+compress even better: they can share both prefixes and suffixes. <a href="https://blog.burntsushi.net/transducers/#ordered-maps"><em>Index
+1,600,000,000 Keys with Automata and Rust</em> by Andrew Gallant (aka
+burntsushi)</a> is a top-notch introduction.</p>
+<p>If you're looking for a general-purpose transducers crate in Rust you're
+probably looking for <a href="https://crates.io/crates/fst">the <code>fst</code> crate</a>. While this implementation
+is fully generic and has no dependencies, its feature set is specific to
+<code>peepmatic</code>'s needs:</p>
+<ul>
+<li>
+<p>We need to associate extra data with each state: the match operation to
+evaluate next.</p>
+</li>
+<li>
+<p>We can't provide the full input string up front, so this crate must
+support incremental lookups. This is because the peephole optimizer is
+computing the input string incrementally and dynamically: it looks at the
+current state's match operation, evaluates it, and then uses the result as
+the next character of the input string.</p>
+</li>
+<li>
+<p>We also support incremental insertion and output when building the
+transducer. This is necessary because we don't want to emit output values
+that bind a match on an optimization's left-hand side's pattern (for
+example) until after we've succeeded in matching it, which might not
+happen until we've reached the n^th state.</p>
+</li>
+<li>
+<p>We need to support generic output values. The <code>fst</code> crate only supports
+<code>u64</code> outputs, while we need to build up an optimization's right-hand side
+instructions.</p>
+</li>
+</ul>
+<p>This implementation is based on <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.24.3698&amp;rep=rep1&amp;type=pdf"><em>Direct Construction of Minimal Acyclic
+Subsequential Transducers</em> by Mihov and Maurel</a>. That means that keys
+must be inserted in lexicographic order during construction.</p>
+</div><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
+<table><tr class="module-item"><td><a class="mod" href="dot/index.html" title="peepmatic_automata::dot mod">dot</a></td><td class="docblock-short"><p>Helpers for generating <a href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf">GraphViz
+Dot</a> files to visually
+render automata.</p>
+</td></tr></table><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<table><tr class="module-item"><td><a class="struct" href="struct.Automaton.html" title="peepmatic_automata::Automaton struct">Automaton</a></td><td class="docblock-short"><p>A finite-state transducer automata.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Builder.html" title="peepmatic_automata::Builder struct">Builder</a></td><td class="docblock-short"><p>A builder for a transducer automata.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.InsertionBuilder.html" title="peepmatic_automata::InsertionBuilder struct">InsertionBuilder</a></td><td class="docblock-short"><p>A builder for a new entry in a transducer automata.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Query.html" title="peepmatic_automata::Query struct">Query</a></td><td class="docblock-short"><p>A low-level query of an <code>Automaton</code>.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.State.html" title="peepmatic_automata::State struct">State</a></td><td class="docblock-short"><p>A state in an automaton.</p>
+</td></tr></table><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<table><tr class="module-item"><td><a class="trait" href="trait.Output.html" title="peepmatic_automata::Output trait">Output</a></td><td class="docblock-short"><p>An output type for a transducer automata.</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../";window.currentCrate = "peepmatic_automata";</script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>

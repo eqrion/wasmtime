@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["create_target_isa","Build an ISA based on the current machine running this code (the host)"],["run",""],["run_file_contents","Main body of `run_single_file` separated for testing"],["run_single_file","Run all functions in a file that are succeeded by \"run:\" comments"]],"struct":[["Options","Execute clif code and verify with test expressions"]]});

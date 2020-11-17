@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DebugDotFmt","Format an `Automaton`'s `TAlphabet`, `TState`, and `TOutput` with their `std::fmt::Debug` implementations."],["DisplayDotFmt","Format an `Automaton`'s `TAlphabet`, `TState`, and `TOutput` with their `std::fmt::Display` implementations."]],"trait":[["DotFmt","Format the user-provided bits of an `Automaton` for Graphviz Dot output."]]});

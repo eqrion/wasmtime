@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["fst_differential","Do differential testing against the `fst` crate, which is another implementation of the algorithm we use for finite-state transducer construction in `peepmatic-automata`."],["simple_automata","Construct an automaton from the the given input-output pairs, and assert that:"]]});

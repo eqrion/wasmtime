@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ConditionCode","A condition code."]]});

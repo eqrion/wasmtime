@@ -1,0 +1,8 @@
+digraph "include" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_d44c64559bbebec7f509842c48db8b23 [shape=box, label="include", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_d44c64559bbebec7f509842c48db8b23.html"];
+  dir_a24efab7b62d862cfd5cf7802e424f6c [shape=box label="wasm-c-api" fillcolor="white" style="filled" color="red" URL="dir_a24efab7b62d862cfd5cf7802e424f6c.html"];
+  dir_d44c64559bbebec7f509842c48db8b23->dir_a24efab7b62d862cfd5cf7802e424f6c [headlabel="2", labeldistance=1.5 headhref="dir_000000_000001.html"];
+}

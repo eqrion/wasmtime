@@ -1,0 +1,1 @@
+initSidebarItems({"macro":[["define_hostcalls",""],["define_wasi_struct","A single-use macro in the `wasmtime-wasi` crate."],["witx_host_types",""],["witx_wasi32_types",""],["witx_wasi_types",""]]});

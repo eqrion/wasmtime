@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["BitWidth","A bit width of a type."],["Kind","The kind of type we are looking at: either an integer kind or boolean kind."]],"struct":[["Type","A type a value or the result of an operation."]]});

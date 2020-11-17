@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["IntegerId","An identifier for an interned integer."],["IntegerInterner","An interner for integer values."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["check","A quickcheck-style runner for fuzz targets."]],"mod":[["automata","Helpers for fuzzing the `peepmatic-automata` crate."],["compile","Fuzz testing utilities related to AST pattern matching."],["interp","Interpreting compiled peephole optimizations against test instruction sequences."],["parser","Utilities for fuzzing our DSL's parser."]]});

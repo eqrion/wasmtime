@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["handle_module",""],["run",""]],"struct":[["Options","Compiles Cranelift IR into target language"]]});
