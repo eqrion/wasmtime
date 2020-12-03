@@ -1583,8 +1583,7 @@ dependencies = [
 [[package]]
 name = "regalloc"
 version = "0.0.31"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "571f7f397d61c4755285cd37853fe8e03271c243424a907415909379659381c5"
+source = "git+https://github.com/mozilla-spidermonkey/regalloc.rs?rev=fc5d1d33317b0fbd36725757f80a95127eff5109#fc5d1d33317b0fbd36725757f80a95127eff5109"
 dependencies = [
  "log",
  "rustc-hash",
@@ -2226,8 +2225,7 @@ checksum = "c97fc0456d6d09ca7b64bc33c34f4e8f29d5ccfa8e5595ef7a8957818339e6f6"
 [[package]]
 name = "wasmparser"
 version = "0.67.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f091cf3849e5fe76a60255bff169277459f2201435bc583b6656880553f0ad0"
+source = "git+https://github.com/mozilla-spidermonkey/wasm-tools?rev=1b7763faa484e62752538b78e7a69883f4faceee#1b7763faa484e62752538b78e7a69883f4faceee"
 
 [[package]]
 name = "wasmprinter"
